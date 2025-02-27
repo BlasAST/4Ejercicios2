@@ -19,9 +19,10 @@ unsigned int ft_strlcpy(char *dest, char *src, unsigned int size)
 	while (i < size)
 	{
 		dest[i] = src[i];
+		write(1,&(dest[i]),1);
 		i++;
 	}
-	return (1);
+	return (size);
 }
 
 int main(void)
@@ -29,5 +30,4 @@ int main(void)
 	char a[] = "Hola buenas";
 	char b;
 	ft_strlcpy(&b,a,4);
-	write (1,&b,4);
 }
