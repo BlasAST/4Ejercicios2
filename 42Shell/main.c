@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 14:54:08 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/03/02 11:00:19 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/03/02 11:14:30 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ int valid_number(char matriz[4][4],int f, int c, int i)
 
 int order_numbers(char matriz[4][4],  char *res, int pos)
 {
+	write(1,"new_order", 9);
 	if (pos == 16)
 		return is_valid(matriz,res);
 	int fila;
@@ -87,6 +88,7 @@ int order_numbers(char matriz[4][4],  char *res, int pos)
 				return 1;
 			matriz[fila][col] = 0;
 		}
+		write(1, "new_try",7);
 		num++;
 	}
 	return 0;
@@ -124,7 +126,8 @@ int main (int args, char **argv)
 	{
 		if(argv[1][i] != ' ')
 		{
-			restricciones[h] = argv[1][i];
+			restricciones[h] = argv[1][i] - '0';
+			write(1, "resG",4);
 			h++;
 		}
 		i++;	
