@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 14:54:08 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/03/02 10:38:39 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/03/02 11:00:19 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,15 @@ int count_visible(char xy[4])
 	return count;
 }
 
-int is_valid(char matriz[4][4],char *restricciones, int size)
+int is_valid(char matriz[4][4],char *restricciones)
 {
 	int i = 0;
 	while (i < 4)
 	{
 		char x1[4] = {matriz[i][0],matriz[i][1],matriz[i][2],matriz[i][3]};
 		char x2[4] = {matriz[i][3],matriz[i][2],matriz[i][1],matriz[i][0]};
-		char y1[4] = {matriz[0][i],matriz[1][i],matriz[i][2],matriz[i][3]};
-		char y2[4] = {matriz[3][i],matriz[2][i],matriz[i][1],matriz[i][0]};
+		char y1[4] = {matriz[0][i],matriz[1][i],matriz[2][i],matriz[3][i]};
+		char y2[4] = {matriz[3][i],matriz[2][i],matriz[1][i],matriz[0][i]};
 		if (count_visible(x1) != restricciones[i]
 			||count_visible(x2) != restricciones[i + 4]
 			|| count_visible(y1) != restricciones[i + 8]
@@ -67,26 +67,29 @@ int valid_number(char matriz[4][4],int f, int c, int i)
 
 }
 
-int order_numbers(char matriz[4][4],  char *restricciones, int a)
+int order_numbers(char matriz[4][4],  char *res, int pos)
 {
-	int x = 0;
-	int y = 0;
-	
-	while(x < 4)
-	{
-		while (y < 4)
-		{
+	if (pos == 16)
+		return is_valid(matriz,res);
+	int fila;
+	int col;
+	int num;
 
-			while (!valid_number(matriz,x,y,y+1))
-			{
-				y++;
-			}
-			y++;
+	fila = pos / 4;
+	col = pos % 4;
+	num = 1;
+	while (num <= 4)
+	{
+		if(valid_number(matriz,fila,col,num))
+		{
+			matriz[fila][col] = num;
+			if(order_numbers(matriz, res, pos+1))
+				return 1;
+			matriz[fila][col] = 0;
 		}
-		y = 0;
-		x++;
+		num++;
 	}
-	return 1;
+	return 0;
 }
 
 void print_numbers(char matriz[4][4])
@@ -126,6 +129,6 @@ int main (int args, char **argv)
 		}
 		i++;	
 	}
-	if(order_numbers(matriz,restricciones,16))
+	if(order_numbers(matriz,restricciones,0))
 		print_numbers(matriz);	
 }
