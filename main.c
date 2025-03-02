@@ -22,31 +22,27 @@ int count_visible(char xy[4])
 	int max = 0;
 	int count = 0;
 	int i = 0;
-	while (xy < 4)
+	while (xy[i] < 4)
 	{
 		if(xy[i] > max)
 		{
 			max = xy[i];
 			count ++;
 		}
+		i++;
 	}
 	return count;
 }
 
-void is_valid(char matriz[4][4],char *restricciones, int size)
+int is_valid(char matriz[4][4],char *restricciones, int size)
 {
-
-	char x1[4];
-	char y2[4];
-	char x2[4];
-	char y2[4];
 	int i = 0;
 	while (i < 4)
 	{
-		x1[] = {matriz[i][0],matriz[i][1],matriz[i][2],matrix[i][3]};
-		x2[] = {matriz[i][3],matriz[i][2],matriz[i][1],matrix[i][0]};
-		y1[] = {matriz[0][i],matriz[1][i],matriz[i][2],matrix[i][3]};
-		y2[] = {matriz[3][i],matriz[2][i],matriz[i][1],matrix[i][0]};
+		char x1[4] = {matriz[i][0],matriz[i][1],matriz[i][2],matrix[i][3]};
+		char x2[4] = {matriz[i][3],matriz[i][2],matriz[i][1],matrix[i][0]};
+		char y1[4] = {matriz[0][i],matriz[1][i],matriz[i][2],matrix[i][3]};
+		char y2[4] = {matriz[3][i],matriz[2][i],matriz[i][1],matrix[i][0]};
 		if (count_visible(x1) != restricciones[i])
 			return 0;
 		if (count_visible(x2) != restricciones[i + 4])
@@ -55,6 +51,7 @@ void is_valid(char matriz[4][4],char *restricciones, int size)
 			return 0;
 		if (count_visible(y2) != restricciones[i + 12])
 			return 0;
+		i++;
 	}
 	return 1;
 }
