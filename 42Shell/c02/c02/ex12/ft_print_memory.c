@@ -1,39 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strupcase.c                                     :+:      :+:    :+:   */
+/*   ft_print_memory.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsiguenc <bsiguenc@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/27 14:07:40 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/03/03 12:29:54 by bsiguenc         ###   ########.fr       */
+/*   Created: 2025/02/28 11:16:06 by bsiguenc          #+#    #+#             */
+/*   Updated: 2025/03/03 12:37:25 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-//#include <unistd.h>
-
-char	*ft_strupcase(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] >= 'a' && str[i] <= 'z')
-		{
-			str[i] = str[i] - 32;
-		}
-		else
-			str[i] = str[i];
-		write(1, &(str[i]), 1);
-		i++;
-	}
-	return (str);
-}
 /*
-int main (void)
+#include <stdio.h>
+#include <unistd.h>
+
+void	*ft_print_memory(void *addr, unsigned int size)
 {
-	char a[]= "hola buen3s Tardes";
-	ft_strupcase(a);
+	int i;
+	i = 1;
+	char *pointer;
+	pointer = (char *)addr;	
+	//printf("%p", &pointer);
+	//if (addr[0]>= 32 && addr[0] <= 126)
+	//{
+	//}
+	return pointer;
+}
+int main(void)
+{
+	char a[] = "Encantado de dormir";
+	ft_print_memory(a,20);
 }
 */

@@ -1,39 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strupcase.c                                     :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsiguenc <bsiguenc@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/27 14:07:40 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/03/03 12:29:54 by bsiguenc         ###   ########.fr       */
+/*   Created: 2025/03/03 15:07:19 by bsiguenc          #+#    #+#             */
+/*   Updated: 2025/03/03 15:47:34 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <unistd.h>
-
-char	*ft_strupcase(char *str)
+char	*ft_strstr(char *str, char *to_find)
 {
 	int	i;
+	char	*valid;
 
 	i = 0;
+	valid;
 	while (str[i] != '\0')
 	{
-		if (str[i] >= 'a' && str[i] <= 'z')
+		if (str[i] == to_find[i])
 		{
-			str[i] = str[i] - 32;
+			valid = &(str[i]);
+			while(str[i] != '\0')
+			{
+				if(str[i] != to_find)
+				{
+					valid = NULL;
+				}
+				i++;
+			}
 		}
-		else
-			str[i] = str[i];
-		write(1, &(str[i]), 1);
 		i++;
 	}
-	return (str);
+	return valid;
 }
-/*
-int main (void)
+
+int main(void)
 {
-	char a[]= "hola buen3s Tardes";
-	ft_strupcase(a);
+	char a[] = "Hola buenas tardes";
+
+	char *p = ft_strstr(a, "bue");
+
+	while (*p != '\0')
+	{
+		write(1,p++,1);
+	}
 }
-*/

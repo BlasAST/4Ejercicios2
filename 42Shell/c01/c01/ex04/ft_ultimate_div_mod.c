@@ -6,11 +6,11 @@
 /*   By: bsiguenc <bsiguenc@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 12:23:09 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/02/26 13:47:17 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/03/03 13:44:20 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_ultimate_dib_mod(int *a, int *b)
+void	ft_ultimate_div_mod(int *a, int *b)
 {
 	int	temp;
 

@@ -1,53 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_non_printable.c                          :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsiguenc <bsiguenc@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/27 17:35:48 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/02/28 11:07:57 by bsiguenc         ###   ########.fr       */
+/*   Created: 2025/02/28 12:15:47 by bsiguenc          #+#    #+#             */
+/*   Updated: 2025/02/28 13:16:28 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+/*#include <unistd.h>
 
 void	ft_putchar(char n)
 {
 	write(1, &n, 1);
 }
-
-void	ft_print_hex(int n)
-{
-	ft_putchar('\\');
-	if (n / 16 >= 10)
-		ft_putchar(n / 16 - 10 + 'a');
-	else
-		ft_putchar(n / 16 + '0');
-	if (n % 16 >= 10)
-		ft_putchar(n % 16 - 10 + 'a');
-	else
-		ft_putchar(n % 16 + '0');
-}
-
-void	ft_putstr_non_printable(char *str)
+*/
+int	ft_strcmp(char *s1, char *s2)
 {
 	int	i;
 
 	i = 0;
-	while (str[i] != '\0')
+	while (s1[i] != '\0' || s2[i] != '\0')
 	{
-		if (str[i] >= 32 && str[i] <= 126)
-			ft_putchar(str[i]);
-		else
-			ft_print_hex(str[i]);
+		if (s1[i] != s2[i] || s1[i] == '\0' || s2[i] == '\0')
+		{
+			while (s1[i] != '\0' && s2[i] != '\0')
+			{
+				i++;
+			}
+			if (s1[i] == '\0')
+				return (-1);
+			else
+				return (1);
+		}
 		i++;
 	}
+	return (0);
 }
 /*
-int main(void)
+int	main(void)
 {
-	char a[] = "Hola uenas\ntar\tdes";
-	ft_putstr_non_printable(a);
+	char	a[] = "Hola";
+	char	b[]= "Holaaa";
+	if(ft_strcmp(a,b) >= 0)
+		ft_putchar(ft_strcmp(a,b) + '0');
+	else
+	{
+		ft_putchar('-');
+		ft_putchar('1');
+	}
 }
 */

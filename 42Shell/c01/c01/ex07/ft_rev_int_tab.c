@@ -6,11 +6,11 @@
 /*   By: bsiguenc <bsiguenc@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 13:53:03 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/02/26 16:01:07 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/03/03 13:45:22 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+//#include <unistd.h>
 
 void	ft_rev_int_tab(int *tab, int size)
 {
@@ -19,7 +19,7 @@ void	ft_rev_int_tab(int *tab, int size)
 
 	i = 0;
 	pos = 0;
-	while (i <= size / 2)
+	while (i < size / 2)
 	{
 		pos = *(tab + i);
 		*(tab + i) = *(tab + size - i - 1);

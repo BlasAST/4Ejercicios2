@@ -6,11 +6,11 @@
 /*   By: bsiguenc <bsiguenc@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 10:49:15 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/02/27 11:55:44 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/03/03 15:31:40 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+//#include <unistd.h>
 
 char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
@@ -22,7 +22,7 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n)
 		dest[i] = src[i];
 		i++;
 	}
-	dest[i + 1] = '\n';
+	dest[i + 1] = '\0';
 	return (dest);
 }
 /*

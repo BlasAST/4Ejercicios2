@@ -1,39 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strupcase.c                                     :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsiguenc <bsiguenc@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/27 14:07:40 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/03/03 12:29:54 by bsiguenc         ###   ########.fr       */
+/*   Created: 2025/03/03 12:44:22 by bsiguenc          #+#    #+#             */
+/*   Updated: 2025/03/03 14:02:45 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <unistd.h>
-
-char	*ft_strupcase(char *str)
+int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
 	int	i;
 
 	i = 0;
-	while (str[i] != '\0')
+	while (i < n)
 	{
-		if (str[i] >= 'a' && str[i] <= 'z')
+		if (s1[i] != s2[i] || (s2[i] == '\0')
+			|| (s1[i] == '\0'))
 		{
-			str[i] = str[i] - 32;
+			while (s2[i] != '\0' && s1[i] != '\0')
+			{
+				i++;
+			}
+			if (s1[i] == '\0')
+				return (-1);
+			else
+				return (1);
 		}
-		else
-			str[i] = str[i];
-		write(1, &(str[i]), 1);
 		i++;
 	}
-	return (str);
+	return (0);
 }
-/*
-int main (void)
-{
-	char a[]= "hola buen3s Tardes";
-	ft_strupcase(a);
-}
-*/

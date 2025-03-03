@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 16:12:38 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/02/27 17:05:03 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/03/03 12:35:14 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strcapitalize(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (str[i] >= 97 && str[i] <= 122)
@@ -22,16 +22,16 @@ char	*ft_strcapitalize(char *str)
 	while (str[i] != '\0')
 	{
 		if ((str[i] < 48 || str[i] > 57) && (str[i] < 65 || str[i] > 90)
-                        && (str[i] < 97 || str[i] > 122))
+			&& (str[i] < 97 || str[i] > 122))
 		{
-			if(str[i + 1] >= 97 && str[i + 1] <= 122)
+			if (str[i + 1] >= 97 && str[i + 1] <= 122)
 			{
 				str[i + 1] = str[i + 1] - 32;
 			}
 		}
 		i++;
 	}
-	return str;
+	return (str);
 }
 /*
 int	main()

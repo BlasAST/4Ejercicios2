@@ -1,39 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strupcase.c                                     :+:      :+:    :+:   */
+/*   paramets.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsiguenc <bsiguenc@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/27 14:07:40 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/03/03 12:29:54 by bsiguenc         ###   ########.fr       */
+/*   Created: 2025/02/28 11:46:17 by bsiguenc          #+#    #+#             */
+/*   Updated: 2025/02/28 14:00:57 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <unistd.h>
+#include <stdio.h>
 
-char	*ft_strupcase(char *str)
+int main(int argc, char **argv)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
+	/*
+	 * int i = 0;
+	while (i < argc)
 	{
-		if (str[i] >= 'a' && str[i] <= 'z')
-		{
-			str[i] = str[i] - 32;
-		}
-		else
-			str[i] = str[i];
-		write(1, &(str[i]), 1);
+		printf("%s\n", argv[i]);
 		i++;
-	}
-	return (str);
+	}*/
+
+//
+		printf("%s\n", argv[0]);
+		printf("%s\n", argv[1]);
+		printf("%s\n", argv[2]);
+		printf("%s\n", argv[3]);
+		printf("%s\n", argv[4]);
 }
-/*
-int main (void)
-{
-	char a[]= "hola buen3s Tardes";
-	ft_strupcase(a);
-}
-*/
