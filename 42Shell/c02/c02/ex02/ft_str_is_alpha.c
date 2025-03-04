@@ -17,18 +17,17 @@ int	ft_str_is_alpha(char *str)
 		return (1);
 	while (*str != '\0')
 	{
-		if ((*str < 48 || *str > 57) && (*str < 65 || *str > 90)
-			&& (*str < 97 || *str > 122))
-			return (1);
+		if ((*str < 65 || *str > 90) && (*str < 97 || *str > 122))
+			return (0);
 		str++;
 	}
-	return (0);
+	return (1);
 }
 /*
 int main(void)
 {
 	char	*a; 
-	a = "1234*";
+	a = "";
 	char h = ft_str_is_alpha(a) + '0';
 	write (1, &h ,1);
 	return (0);

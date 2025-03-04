@@ -27,9 +27,9 @@ int	ft_str_is_lowercase(char *str)
 int main(void)
 {
 	char	*a; 
-	a = "holAa";
-	char h = ft_str_is_alpha(a) + '0';
+	a = "holaa";
+	char h = ft_str_is_lowercase(a) + '0';
 	write (1, &h ,1);
 	return (0);
-}
-*/
+}*/
+

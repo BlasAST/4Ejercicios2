@@ -17,7 +17,7 @@ void	ft_putchar(char n)
 	write(1, &n, 1);
 }
 
-void	ft_print_hex(int n)
+void	ft_print_hex(char n)
 {
 	ft_putchar('\\');
 	if (n / 16 >= 10)
@@ -37,7 +37,7 @@ void	ft_putstr_non_printable(char *str)
 	i = 0;
 	while (str[i] != '\0')
 	{
-		if (str[i] >= 32 && str[i] <= 126)
+		if (str[i] >= 32 && str[i] != 127)
 			ft_putchar(str[i]);
 		else
 			ft_print_hex(str[i]);

@@ -14,24 +14,32 @@
 
 char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
-	int	i;
+	unsigned int	i;
 
 	i = 0;
 	while (i < n)
 	{
 		dest[i] = src[i];
+		if (src[i] == '\0')
+		{
+			while (i < n)
+			{
+				dest[i] = '\0';
+				i++;
+			}
+			return (dest);
+		}
 		i++;
 	}
-	dest[i + 1] = '\0';
 	return (dest);
 }
 /*
 int main(void)
 {
 	char *a = "holaawea";
-	char b;
-	char *h = ft_strncpy(&b, a, 4);
-	while (*h != '\n')
+	char b[8];
+	char *h = ft_strncpy(b, a, 9);
+	while (*h != '\0')
 	{
 		write(1,h,1);
 		h++;

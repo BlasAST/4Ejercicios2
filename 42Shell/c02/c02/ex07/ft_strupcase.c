@@ -25,7 +25,6 @@ char	*ft_strupcase(char *str)
 		}
 		else
 			str[i] = str[i];
-		write(1, &(str[i]), 1);
 		i++;
 	}
 	return (str);

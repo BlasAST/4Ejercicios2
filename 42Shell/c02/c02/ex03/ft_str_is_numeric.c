@@ -27,8 +27,9 @@ int	ft_str_is_numeric(char *str)
 int main(void)
 {
 	char	*a; 
-	a = "1234";
-	char h = ft_str_is_alpha(a) + '0';
+	a = "876";
+	char h = ft_str_is_numeric(a) + '0';
 	write (1, &h ,1);
 	return (0);
-}*/
+}
+*/

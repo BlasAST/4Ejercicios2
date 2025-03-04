@@ -15,20 +15,25 @@
 char	*ft_strcapitalize(char *str)
 {
 	int	i;
+	int word;
 
 	i = 0;
-	if (str[i] >= 97 && str[i] <= 122)
-		str[i] = str[i] - 32;
 	while (str[i] != '\0')
 	{
-		if ((str[i] < 48 || str[i] > 57) && (str[i] < 65 || str[i] > 90)
-			&& (str[i] < 97 || str[i] > 122))
-		{
-			if (str[i + 1] >= 97 && str[i + 1] <= 122)
+		if ((str[i] < '0' || str[i] > '9') && (str[i] < 'A' || str[i] > 'Z')
+			&& (str[i] < 'a' || str[i] > 'z'))
+			word = 0;
+		else
+			if (word == 0 && str[i] >= 'a' && str[i] <= 'z'
+				|| i == 0 && str[i] >= 'a' && str[i] <= 'z') 
 			{
-				str[i + 1] = str[i + 1] - 32;
+				str[i] = str[i] - 32;
+				word = 1;
 			}
-		}
+			else if (str[i] >= 'A' && str[i] <= 'Z')
+				str[i] = str[i] + 32;
+			else
+				word = 1;
 		i++;
 	}
 	return (str);
@@ -36,7 +41,7 @@ char	*ft_strcapitalize(char *str)
 /*
 int	main()
 {
-	char h[] = "salut, comment tu vas ? 42mots quarante-deux; cinquante+et+un";
+	char h[] = "salut, comment tu vas ? 42mots quaAAArante-deux; cinquante+et+un";
 	ft_strcapitalize(h);
 	int  i = 0;
 

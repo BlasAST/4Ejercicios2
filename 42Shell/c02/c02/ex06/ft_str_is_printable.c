@@ -11,14 +11,13 @@
 /* ************************************************************************** */
 
 //#include <unistd.h>
-int	ft_str_is_printeable(char *str)
+int	ft_str_is_printable(char *str)
 {
 	if (*str == '\0')
 		return (1);
 	while (*str != '\0')
 	{
-		if ((*str > 32 || *str < 47) && (*str < 58 || *str > 64)
-			&& (*str < 91 || *str > 96) && (*str < 123 || *str > 126))
+		if (*str < 32 || *str > 126)
 			return (0);
 		str++;
 	}
@@ -28,8 +27,8 @@ int	ft_str_is_printeable(char *str)
 int main(void)
 {
 	char	*a; 
-	a = "[][==]";
-	char h = ft_str_is_printeable(a) + '0';
+	a = "hola813";
+	char h = ft_str_is_printable(a) + '0';
 	write (1, &h ,1);
 	return (0);
 }
