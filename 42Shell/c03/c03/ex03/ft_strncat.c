@@ -14,16 +14,14 @@
 
 char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
-	int	i;
-	int	j;
+	unsigned int	i;
+	unsigned int	j;
 
 	i = 0;
 	j = 0;
 	while (dest[j] != '\0')
-	{
 		j++;
-	}
-	while (i < nb)
+	while (i < nb && src[i] != '\0')
 	{
 		dest[j + i] = src[i];
 		i++;

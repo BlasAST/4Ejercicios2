@@ -19,37 +19,34 @@ void	ft_putchar(char n)
 */
 int	ft_strcmp(char *s1, char *s2)
 {
-	int	i;
+	int dif;
 
-	i = 0;
-	while (s1[i] != '\0' || s2[i] != '\0')
+	dif = 0;
+	while(*s1 && *s2 && (*s1 == *s2))
 	{
-		if (s1[i] != s2[i] || s1[i] == '\0' || s2[i] == '\0')
-		{
-			while (s1[i] != '\0' && s2[i] != '\0')
-			{
-				i++;
-			}
-			if (s1[i] == '\0')
-				return (-1);
-			else
-				return (1);
-		}
-		i++;
+		s1++;
+		s2++;
 	}
-	return (0);
+
+	dif = *s1 - *s2;
+	return dif;
 }
 /*
 int	main(void)
 {
-	char	a[] = "Hola";
-	char	b[]= "Holaaa";
-	if(ft_strcmp(a,b) >= 0)
-		ft_putchar(ft_strcmp(a,b) + '0');
+	char	a[] = "Holaa";
+	char	b[]= "Holaaaaaa";
+	int res =ft_strcmp(a,b);
+	if (res >= 0 )
+	{
+		ft_putchar(res / 10 + '0');
+		ft_putchar(res % 10 + '0');
+	}
 	else
 	{
 		ft_putchar('-');
-		ft_putchar('1');
+		ft_putchar(res / 10 + '0');
+		ft_putchar(res % 10 + '0');
 	}
 }
 */
