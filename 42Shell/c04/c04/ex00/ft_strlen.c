@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_lowercase.c                              :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsiguenc <bsiguenc@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/27 13:34:56 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/03/04 12:29:51 by bsiguenc         ###   ########.fr       */
+/*   Created: 2025/03/04 15:04:05 by bsiguenc          #+#    #+#             */
+/*   Updated: 2025/03/04 16:03:44 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include <unistd.h>
-int	ft_str_is_lowercase(char *str)
+
+int	ft_strlen(char *str)
 {
-	if (*str == '\0')
-		return (1);
+	int	i;
+
+	i = 0;
 	while (*str != '\0')
 	{
-		if (*str < 97 || *str > 122)
-			return (0);
 		str++;
+		i++;
 	}
-	return (1);
+	return (i);
 }
 /*
 int main(void)
 {
-	char	*a; 
-	a = "holaa";
-	char h = ft_str_is_lowercase(a) + '0';
-	write (1, &h ,1);
-	return (0);
-}*/
+	char h[] = "hola bu";
+	char c = ft_strlen(h) + '0';
+	write(1, &c, 1);
+}
+*/

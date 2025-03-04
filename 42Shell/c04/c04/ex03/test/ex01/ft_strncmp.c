@@ -6,17 +6,17 @@
 /*   By: bsiguenc <bsiguenc@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 12:44:22 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/03/04 12:50:41 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/03/04 17:43:45 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <unistd.h>
-/*
+#include <unistd.h>
+
 void ft_putchar(char n)
 {
 	write (1, &n, 1);
 }
-*/
+
 int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
 	int	i;
@@ -40,7 +40,7 @@ int	ft_strncmp(char *s1, char *s2, unsigned int n)
 	}
 	return (0);
 }
-/*
+
 int	main(void)
 {
 	char	a[] = "Hoaaaaa";
@@ -53,4 +53,4 @@ int	main(void)
 		ft_putchar('1');
 	}
 }
-*/
+

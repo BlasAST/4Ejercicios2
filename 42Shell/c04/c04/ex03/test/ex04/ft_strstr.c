@@ -1,45 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsiguenc <bsiguenc@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/28 13:26:32 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/03/04 12:52:57 by bsiguenc         ###   ########.fr       */
+/*   Created: 2025/03/03 15:07:19 by bsiguenc          #+#    #+#             */
+/*   Updated: 2025/03/04 17:45:37 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <unistd.h>
+#include <unistd.h>
 
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
+char	*ft_strstr(char *str, char *to_find)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	j = 0;
-	while (dest[j] != '\0')
+	while (str[i] != '\0')
 	{
-		j++;
-	}
-	while (i < nb)
-	{
-		dest[j + i] = src[i];
+		j = 0;
+		if (str[i] == to_find[j])
+		{
+			while (str[i + j] == to_find[j] && to_find[j] != '\0')
+			{
+				j++;
+				if (to_find[j] == '\0')
+					return (&(str[i]));
+			}
+		}
 		i++;
 	}
-	dest[j + i] = '\0';
-	return (dest);
+	return (NULL);
 }
-/*
+
 int main(void)
 {
-	char a[] = "hola";
-	char b[] = " mundo";
-	char *h = ft_strncat(a,b,3);
-	while (*h != '\0')
+	char a[] = "Hola buenas tardes";
+	char b[] = "b";
+	char *p = ft_strstr(a, b);
+
+	while (*p != '\0')
 	{
-		write (1, h++, 1);
+		write(1,p,1);
+		p++;
 	}
 }
-*/
+

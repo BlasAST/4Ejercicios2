@@ -1,34 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_lowercase.c                              :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsiguenc <bsiguenc@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/27 13:34:56 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/03/04 12:29:51 by bsiguenc         ###   ########.fr       */
+/*   Created: 2025/02/28 13:26:32 by bsiguenc          #+#    #+#             */
+/*   Updated: 2025/03/04 17:44:49 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <unistd.h>
-int	ft_str_is_lowercase(char *str)
+#include <unistd.h>
+
+char	*ft_strcat(char *dest, char *src)
 {
-	if (*str == '\0')
-		return (1);
-	while (*str != '\0')
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (dest[j] != '\0')
 	{
-		if (*str < 97 || *str > 122)
-			return (0);
-		str++;
+		j++;
 	}
-	return (1);
+	while (src[i] != '\0')
+	{
+		dest[j + i] = src[i];
+		i++;
+	}
+	dest[j + i] = '\0';
+	return (dest);
 }
-/*
+
 int main(void)
 {
-	char	*a; 
-	a = "holaa";
-	char h = ft_str_is_lowercase(a) + '0';
-	write (1, &h ,1);
-	return (0);
-}*/
+	char a[] = "hola";
+	char b[] = " mundo";
+	char *h = ft_strcat(a,b);
+	while (*h != '\0')
+	{
+		write (1, h++, 1);
+	}
+}
