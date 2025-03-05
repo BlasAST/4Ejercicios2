@@ -1,56 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsiguenc <bsiguenc@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/03 12:44:22 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/03/04 12:50:41 by bsiguenc         ###   ########.fr       */
+/*   Created: 2025/03/03 15:07:19 by bsiguenc          #+#    #+#             */
+/*   Updated: 2025/03/05 15:37:51 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include <unistd.h>
-/*
-void ft_putchar(char n)
-{
-	write (1, &n, 1);
-}
-*/
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
+
+char	*ft_strstr(char *str, char *to_find)
 {
 	int	i;
+	int	j;
 
 	i = 0;
-	while (i < n)
+	while (str[i] != '\0')
 	{
-		if (s1[i] != s2[i] || (s2[i] == '\0')
-			|| (s1[i] == '\0'))
+		j = 0;
+		while (str[j + i] != '\0' && str[j + i] == to_find[j])
 		{
-			while (s2[i] != '\0' && s1[i] != '\0')
-			{
-				i++;
-			}
-			if (s1[i] == '\0')
-				return (-1);
-			else
-				return (1);
+			j++;
+			if (to_find[j] == '\0')
+				return (&(str[i]));
 		}
 		i++;
 	}
 	return (0);
 }
 /*
-int	main(void)
+int main(void)
 {
-	char	a[] = "Hoaaaaa";
-	char	b[]= "Ho";
-	if(ft_strncmp(a,b, 3) >= 0)
-		ft_putchar(ft_strncmp(a,b, 3) + '0');
-	else
+	char a[] = "Hola buenas tardes";
+	char b[] = "b";
+	char *p = ft_strstr(a, b);
+
+	while (*p != '\0')
 	{
-		ft_putchar('-');
-		ft_putchar('1');
+		write(1,p,1);
+		p++;
 	}
 }
 */

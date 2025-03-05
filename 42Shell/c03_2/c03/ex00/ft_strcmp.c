@@ -1,49 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsiguenc <bsiguenc@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/04 16:41:26 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/03/05 18:47:36 by bsiguenc         ###   ########.fr       */
+/*   Created: 2025/02/28 12:15:47 by bsiguenc          #+#    #+#             */
+/*   Updated: 2025/03/05 15:22:53 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
-//#include <unistd.h>
+/*#include <unistd.h>
 
-int	ft_atoi(char *str)
+void	ft_putchar(char n)
 {
-	int	number;
-	int	pos;
+	write(1, &n, 1);
+}
+*/
+int	ft_strcmp(char *s1, char *s2)
+{
 	int	i;
 
-	number = 0;
 	i = 0;
-	pos = 0;
-	while (str[i] != '\0')
+	while (*s1 == *s2 && *s1 != '\0' && *s2 != '\0')
 	{
-		if (str[i] >= '0' && str[i] <= '9')
-		{
-			number *= 10;
-			number += str[i] - '0';
-		}
-		else if (str[i] == '+')
-			pos++;
-		else if (str[i] == '-')
-			pos--;
-		else if (str[i] != ' ')
-			break ;
-		i++;
+		s1++;
+		s2++;
 	}
-	if (pos < 0)
-		number = -number;
-	return (number);
+	return (*s1 - *s2);
 }
 /*
 int	main(void)
 {
-	printf("%d",(ft_atoi(" --++--   12345")));
+	char	a[] = "Holaaa";
+	char	b[]= "Holaaa";
+	int h = ft_strcmp(a,b);
+	
+	ft_putchar(h / 10 + '0');
+	ft_putchar(h % 10 + '0');
+	
 }
 */
