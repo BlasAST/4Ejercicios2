@@ -1,45 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_recursive_power.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsiguenc <bsiguenc@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/28 13:26:32 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/03/05 15:33:28 by bsiguenc         ###   ########.fr       */
+/*   Created: 2025/03/06 18:42:50 by bsiguenc          #+#    #+#             */
+/*   Updated: 2025/03/06 19:33:02 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <unistd.h>
+#include <stdio.h>
 
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
+int	ft_recursive_power(int nb, int power)
 {
-	unsigned int	i;
-	unsigned int	j;
+	int	res;
 
-	i = 0;
-	j = 0;
-	while (dest[j] != '\0')
-	{
-		j++;
-	}
-	while (i < nb && src[i] != '\0')
-	{
-		dest[j + i] = src[i];
-		i++;
-	}
-	dest[j + i] = '\0';
-	return (dest);
+	res = 1;
+	if (power < 0)
+		return (0);
+	if (power == 0)
+		return (1);
+	if (power >= 1)
+		res *= nb * ft_recursive_power(nb, power - 1);
+	return (res);
 }
 /*
 int main(void)
 {
-	char a[] = "hola";
-	char b[] = " mundo";
-	char *h = ft_strncat(a,b,3);
-	while (*h != '\0')
-	{
-		write (1, h++, 1);
-	}
+	printf("%d", ft_recursive_power(2,4));
 }
 */

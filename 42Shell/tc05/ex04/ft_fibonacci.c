@@ -1,45 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_fibonacci.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsiguenc <bsiguenc@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/28 13:26:32 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/03/05 15:33:28 by bsiguenc         ###   ########.fr       */
+/*   Created: 2025/03/06 19:35:18 by bsiguenc          #+#    #+#             */
+/*   Updated: 2025/03/06 19:36:57 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <unistd.h>
+int ft_fibonacci(int index)
+{	
+	int value;
 
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
-{
-	unsigned int	i;
-	unsigned int	j;
-
-	i = 0;
-	j = 0;
-	while (dest[j] != '\0')
-	{
-		j++;
-	}
-	while (i < nb && src[i] != '\0')
-	{
-		dest[j + i] = src[i];
-		i++;
-	}
-	dest[j + i] = '\0';
-	return (dest);
+	value = 0;
+	if (index < 1)
+	return ()
 }
-/*
+
 int main(void)
 {
-	char a[] = "hola";
-	char b[] = " mundo";
-	char *h = ft_strncat(a,b,3);
-	while (*h != '\0')
-	{
-		write (1, h++, 1);
-	}
+
 }
-*/

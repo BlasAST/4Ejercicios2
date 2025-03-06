@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 15:07:19 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/03/04 14:58:12 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/03/06 14:44:36 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,19 @@ char	*ft_strstr(char *str, char *to_find)
 	int	i;
 	int	j;
 
+	if (*to_find == '\0')
+		return (str);
 	i = 0;
 	while (str[i] != '\0')
 	{
 		j = 0;
-		if (str[i] == to_find[j])
-		{
-			while (str[i + j] == to_find[j] && to_find[j] != '\0')
-			{
-				j++;
-				if (to_find[j] == '\0')
-					return (&(str[i]));
-			}
-		}
+		while (str[j + i] != '\0' && str[j + i] == to_find[j])
+			j++;
+		if (to_find[j] == '\0')
+			return (&(str[i]));
 		i++;
 	}
-	return (NULL);
+	return (0);
 }
 /*
 int main(void)

@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 16:41:26 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/03/05 18:47:36 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/03/06 12:23:06 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,6 @@ int	ft_atoi(char *str)
 /*
 int	main(void)
 {
-	printf("%d",(ft_atoi(" ----+++   12345")));
+	printf("%d",(ft_atoi(" --++--   12345")));
 }
 */

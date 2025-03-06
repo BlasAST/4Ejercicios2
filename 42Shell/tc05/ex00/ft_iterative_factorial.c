@@ -1,45 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsiguenc <bsiguenc@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/28 13:26:32 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/03/05 15:33:28 by bsiguenc         ###   ########.fr       */
+/*   Created: 2025/03/06 14:58:49 by bsiguenc          #+#    #+#             */
+/*   Updated: 2025/03/06 18:21:50 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <unistd.h>
-
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
+//#include <stdio.h>
+int	ft_iterative_factorial(int nb)
 {
-	unsigned int	i;
-	unsigned int	j;
+	int	factorial;
 
-	i = 0;
-	j = 0;
-	while (dest[j] != '\0')
+	if (nb < 0)
+		return (0);
+	factorial = 1;
+	while (nb > 0)
 	{
-		j++;
+		factorial *= nb;
+		nb--;
 	}
-	while (i < nb && src[i] != '\0')
-	{
-		dest[j + i] = src[i];
-		i++;
-	}
-	dest[j + i] = '\0';
-	return (dest);
+	return (factorial);
 }
 /*
 int main(void)
 {
-	char a[] = "hola";
-	char b[] = " mundo";
-	char *h = ft_strncat(a,b,3);
-	while (*h != '\0')
-	{
-		write (1, h++, 1);
-	}
+	printf("%d",ft_iterative_factorial(-5));	
 }
 */
