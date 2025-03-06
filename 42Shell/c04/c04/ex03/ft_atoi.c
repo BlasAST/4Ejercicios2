@@ -37,13 +37,13 @@ int	ft_atoi(char *str)
 			break ;
 		i++;
 	}
-	if (pos < 0)
+	if (pos < 0 && pos % 2 != 0)
 		number = -number;
 	return (number);
 }
 /*
 int	main(void)
 {
-	printf("%d",(ft_atoi(" --++--   12345")));
+	printf("%d",(ft_atoi(" ----+++   12345")));
 }
 */

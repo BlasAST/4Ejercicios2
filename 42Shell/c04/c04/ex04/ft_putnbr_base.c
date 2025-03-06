@@ -28,61 +28,52 @@ int	ft_strcmp(char *s1, char *s2)
 
 }
 
-void base_decimal(int nbr)
+void conver(int nbr, char *base, int div)
 {
-	if (nbr / 10 > 0)
-	{
-		base_decimal(nbr / 10);
-	}
-	ft_putchar(nbr % 10 + '0');
-}
+	if (nbr >= div)
+		conver(nbr / div, base,div);
+	ft_putchar(base[nbr % div]);
 
-void base_binary(int nbr)
-{
-	if (nbr / 2 > 2)
-	{
-		base_binary(nbr / 2);
-	}
-	ft_putchar(nbr % 2 + '0');
 }
-
-void base_hexadecimal(int nbr)
-{
-	if (nbr / 10 > 0)
-	{
-		base_decimal(nbr / 10);
-	}
-}
-
-void base_octal(int nbr)
-{
-	if (nbr / 10 > 0)
-	{
-		base_decimal(nbr / 10);
-	}
-}
-
 void	ft_putnbr_base(int nbr, char *base)
 {
+	int	i;
+
+	i = 0;
+	if (base[i] == '\0')
+		return ;
+	while (base[i] != '\0')
+	{
+		i++;
+		if (base[i - 1] == base[i] || base[i] == '+' || base[i] == '-')
+			return ;
+	}
+	if (nbr < 0)
+	{
+		ft_putchar('-');
+		nbr *= -1;
+	}
 	if (ft_strcmp(base,"0123456789") == 0)
-		base_decimal(nbr);
+		conver(nbr,base,10);
 	if (ft_strcmp(base,"01") == 0)
-		base_binary(nbr);
+		conver(nbr,base,2);
 	if (ft_strcmp(base,"0123456789ABCDEF") == 0)
-		base_hexadecimal(nbr);
-	if (ft_strcmp(base,"01234567") == 0)
-		base_octal(nbr);
+		conver(nbr,base,16);
+	if (ft_strcmp(base,"poniguay") == 0)
+		conver(nbr,"01234567",8);
 }
 
 int main(void)
 {
-	ft_putnbr_base(1234, "0123456789");
+	
+	ft_putnbr_base(-1234, "0123456789");
 	ft_putchar('\n');
 	ft_putnbr_base(34, "01");
 	ft_putchar('\n');
-//	ft_putnbr_base(1234, "0123456789");
+	ft_putnbr_base(1234, "0123456789ABCDEF");
 	ft_putchar('\n');
-//	ft_putnbr_base(1234, "0123456789");
+	ft_putnbr_base(1234, "poniguay");
 	ft_putchar('\n');
 	return (0);
 }
+
