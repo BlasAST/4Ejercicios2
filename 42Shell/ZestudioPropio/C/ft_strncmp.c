@@ -1,47 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsiguenc <bsiguenc@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/03 15:07:19 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/03/05 15:37:51 by bsiguenc         ###   ########.fr       */
+/*   Created: 2025/03/03 12:44:22 by bsiguenc          #+#    #+#             */
+/*   Updated: 2025/03/06 20:28:48 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <unistd.h>
+/*#include <stdio.h>
+#include <unistd.h>
 
-char	*ft_strstr(char *str, char *to_find)
+void ft_putchar(char n)
 {
-	int	i;
-	int	j;
+	write (1, &n, 1);
+}
+*/
+int	ft_strncmp(char *s1, char *s2, unsigned int n)
+{
+	unsigned int	i;
 
 	i = 0;
-	while (str[i] != '\0')
+	while (i < n && s1[i] != '\0' && s2[i] != '\0')
 	{
-		j = 0;
-		while (str[j + i] != '\0' && str[j + i] == to_find[j])
-		{
-			j++;
-			if (to_find[j] == '\0')
-				return (&(str[i]));
-		}
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
 		i++;
 	}
+	if (i < n)
+		return (s1[i] - s2[i]);
 	return (0);
 }
 /*
-int main(void)
+int	main(void)
 {
-	char a[] = "Hola buenas tardes";
-	char b[] = "b";
-	char *p = ft_strstr(a, b);
-
-	while (*p != '\0')
-	{
-		write(1,p,1);
-		p++;
-	}
+	char	a[] = "Hoaa";
+	char	b[] = "Hoaa";
+	int h = ft_strncmp(a,b,8);
+	printf("Number: %d", h);
 }
 */
