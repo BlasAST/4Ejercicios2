@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fibonacci.c                                     :+:      :+:    :+:   */
+/*   print_number.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsiguenc <bsiguenc@student.42madrid.c      +#+  +:+       +#+        */
+/*   By: rnuno-im <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/06 19:35:18 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/03/07 13:22:28 by bsiguenc         ###   ########.fr       */
+/*   Created: 2025/03/08 17:39:32 by rnuno-im          #+#    #+#             */
+/*   Updated: 2025/03/08 18:55:27 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include <stdio.h>*/
 
-int	ft_fibonacci(int index)
+void	ft_itoa(int number)
 {
-	if (index == 0)
-		return (0);
-	else if (index == 1)
-		return (1);
+	int digits;
+	
+	digits = count_digits(number);
+	printf("%d",digits);
+	if (number <= 20)
+	{
+
+	}
 	else
-		return (ft_fibonacci(index - 1) + ft_fibonacci(index - 2));
+	{
+		
+	}
+	ft_itoa(number / 10);
 }
-/*
-int main(void)
-{
-	printf("%d", ft_fibonacci(10));
-}
-*/
