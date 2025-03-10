@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+/*#include <stdio.h>*/
 
 int	ft_is_prime(int nb)
 {
@@ -19,6 +19,8 @@ int	ft_is_prime(int nb)
 
 	i = 1;
 	find = 0;
+	if (nb == 0 || nb == 1)
+		return (0);
 	while (i <= nb)
 	{
 		if (nb % i == 0 && i != 1 && i != nb)
@@ -27,9 +29,10 @@ int	ft_is_prime(int nb)
 	}
 	return (1);
 }
-
+/*
 int main(void)
 {
 
-	printf("%d", ft_is_prime(7));
+	printf("%d", ft_is_prime(68));
 }
+*/
