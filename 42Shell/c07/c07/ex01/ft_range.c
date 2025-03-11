@@ -1,47 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_range.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsiguenc <bsiguenc@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/04 16:41:26 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/03/11 19:10:35 by bsiguenc         ###   ########.fr       */
+/*   Created: 2025/03/11 13:07:58 by bsiguenc          #+#    #+#             */
+/*   Updated: 2025/03/11 13:42:57 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <unistd.h>
+#include <stdlib.h>
 
-int	ft_atoi(char *str)
+int	*ft_range(int min, int max)
 {
-	int	number;
-	int	sign;
+	int	*array;
+	int	i;
 
-	number = 0;
-	sign = 1;
-	while (*str == ' ' || (*str >= 9 && *str <= 13))
-		str++;
-	while (*str == '-' || *str == '+')
+	if (min == max || min > max)
+		return (NULL);
+	array = (int *)malloc(sizeof(int) * (max - min));
+	if (!array)
+		return (NULL);
+	i = 0;
+	while (i < max - min)
 	{
-		if (*str == '-')
-			sign *= -1;
-		str++;
+		array[i] = min + i;
+		i++;
 	}
-	while (*str != '\0')
-	{
-		if (*str >= '0' && *str <= '9')
-		{
-			number *= 10;
-			number += *str - '0';
-		}
-		str++;
-	}
-	return (number * sign);
+	return (array);
 }
 /*
 int	main(void)
 {
-	printf("%d",(ft_atoi(" --+-+-12a345")));
+	int min = 5, max = 100;
+	int *ft = ft_range(min, max);
+	int size = max - min;
+	int i = 0;
+	while (i < size)
+	{
+		printf("%d",ft[i]);
+		i++;
+	}
+	return (0);
 }
 */

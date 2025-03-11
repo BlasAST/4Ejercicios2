@@ -1,30 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsiguenc <bsiguenc@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/20 20:10:10 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/03/11 18:30:24 by bsiguenc         ###   ########.fr       */
+/*   Created: 2025/03/10 14:41:40 by bsiguenc          #+#    #+#             */
+/*   Updated: 2025/03/11 13:07:15 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-void	ft_print_alphabet(void)
+char	*ft_strdup(char *src)
 {
-	char	letter;
+	char	*copy;
+	int		i;
+	int		len;
 
-	letter = 97;
-	while (letter <= 126)
+	len = 0;
+	while (src[len] != '\0' )
+		len++;
+	copy = (char *)malloc(sizeof(char) * (len + 1));
+	i = 0;
+	while (src[i])
 	{
-		write(1, &letter, 1);
-		letter++;
+		copy[i] = src[i];
+		i++;
 	}
+	copy[i] = '\0';
+	return (copy);
 }
-
-int main(void)
+/*
+int main()
 {
-	ft_print_alphabet();
+	char *a = "hola";
+	printf("%p , %p",ft_strdup(a), a);
 }
+*/

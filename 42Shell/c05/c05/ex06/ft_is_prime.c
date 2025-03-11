@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
+/*   ft_is_prime.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsiguenc <bsiguenc@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/20 20:10:10 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/03/11 18:30:24 by bsiguenc         ###   ########.fr       */
+/*   Created: 2025/03/07 13:34:26 by bsiguenc          #+#    #+#             */
+/*   Updated: 2025/03/10 13:21:34 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 
-void	ft_print_alphabet(void)
+int	ft_is_prime(int nb)
 {
-	char	letter;
+	int	i;
 
-	letter = 97;
-	while (letter <= 126)
+	i = 1;
+	if (nb == 0 || nb == 1)
+		return (0);
+	while (i <= nb)
 	{
-		write(1, &letter, 1);
-		letter++;
+		if (nb % i == 0 && i != 1 && i != nb)
+			return (0);
+		i++;
 	}
+	return (1);
 }
-
+/*
 int main(void)
 {
-	ft_print_alphabet();
+
+	printf("%d", ft_is_prime(0));
 }
+*/

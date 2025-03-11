@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
+/*   ft_fibonacci.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsiguenc <bsiguenc@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/20 20:10:10 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/03/11 18:30:24 by bsiguenc         ###   ########.fr       */
+/*   Created: 2025/03/06 19:35:18 by bsiguenc          #+#    #+#             */
+/*   Updated: 2025/03/10 13:18:28 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+/*#include <stdio.h>*/
 
-void	ft_print_alphabet(void)
+int	ft_fibonacci(int index)
 {
-	char	letter;
-
-	letter = 97;
-	while (letter <= 126)
-	{
-		write(1, &letter, 1);
-		letter++;
-	}
+	if (index < 0)
+		return (-1);
+	if (index == 0)
+		return (0);
+	else if (index == 1)
+		return (1);
+	else
+		return (ft_fibonacci(index - 1) + ft_fibonacci(index - 2));
 }
-
+/*
 int main(void)
 {
-	ft_print_alphabet();
+	printf("%d", ft_fibonacci(10));
 }
+*/

@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
+/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsiguenc <bsiguenc@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/20 20:10:10 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/03/11 18:30:24 by bsiguenc         ###   ########.fr       */
+/*   Created: 2025/03/06 14:58:49 by bsiguenc          #+#    #+#             */
+/*   Updated: 2025/03/06 18:21:50 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_print_alphabet(void)
+//#include <stdio.h>
+int	ft_iterative_factorial(int nb)
 {
-	char	letter;
+	int	factorial;
 
-	letter = 97;
-	while (letter <= 126)
+	if (nb < 0)
+		return (0);
+	factorial = 1;
+	while (nb > 0)
 	{
-		write(1, &letter, 1);
-		letter++;
+		factorial *= nb;
+		nb--;
 	}
+	return (factorial);
 }
-
+/*
 int main(void)
 {
-	ft_print_alphabet();
+	printf("%d",ft_iterative_factorial(-5));	
 }
+*/

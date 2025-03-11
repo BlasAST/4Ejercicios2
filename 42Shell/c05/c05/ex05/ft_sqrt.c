@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsiguenc <bsiguenc@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/20 20:10:10 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/03/11 18:30:24 by bsiguenc         ###   ########.fr       */
+/*   Created: 2025/03/07 13:01:19 by bsiguenc          #+#    #+#             */
+/*   Updated: 2025/03/10 18:56:32 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 
-void	ft_print_alphabet(void)
+int	ft_sqrt(int nb)
 {
-	char	letter;
+	int	i;
 
-	letter = 97;
-	while (letter <= 126)
-	{
-		write(1, &letter, 1);
-		letter++;
-	}
+	if (nb < 0)
+		return (0);
+	i = 0;
+	while (i <= 46340 && i * i < nb)
+		i++;
+	if (i * i == nb)
+		return (i);
+	return (0);
 }
-
+/*
 int main(void)
 {
-	ft_print_alphabet();
+
+	printf("%d", ft_sqrt(-12));
 }
+*/

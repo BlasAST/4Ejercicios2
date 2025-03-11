@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
+/*   ft_iterative_power.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsiguenc <bsiguenc@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/20 20:10:10 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/03/11 18:30:24 by bsiguenc         ###   ########.fr       */
+/*   Created: 2025/03/06 18:17:32 by bsiguenc          #+#    #+#             */
+/*   Updated: 2025/03/06 18:48:11 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+/*#include <stdio.h>*/
 
-void	ft_print_alphabet(void)
+int	ft_iterative_power(int nb, int power)
 {
-	char	letter;
+	int	res;
 
-	letter = 97;
-	while (letter <= 126)
+	if (power < 0)
+		return (0);
+	if (power == 0)
+		return (1);
+	res = nb;
+	while (power > 1)
 	{
-		write(1, &letter, 1);
-		letter++;
+		res *= nb;
+		power--;
 	}
+	return (res);
 }
-
+/*
 int main(void)
 {
-	ft_print_alphabet();
+	printf("%d",ft_iterative_power(5,-2));
 }
+*/

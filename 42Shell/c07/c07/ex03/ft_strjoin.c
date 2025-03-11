@@ -1,47 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsiguenc <bsiguenc@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/04 16:41:26 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/03/11 19:10:35 by bsiguenc         ###   ########.fr       */
+/*   Created: 2025/03/11 16:03:21 by bsiguenc          #+#    #+#             */
+/*   Updated: 2025/03/11 16:42:06 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <unistd.h>
+#include <stdlib.h>
 
-int	ft_atoi(char *str)
+int	ft_strlen(char *pos)
 {
-	int	number;
-	int	sign;
+	int	i;
 
-	number = 0;
-	sign = 1;
-	while (*str == ' ' || (*str >= 9 && *str <= 13))
-		str++;
-	while (*str == '-' || *str == '+')
+	i = 0;
+	while (*pos)
 	{
-		if (*str == '-')
-			sign *= -1;
-		str++;
+		i++;
+		pos++;
 	}
-	while (*str != '\0')
-	{
-		if (*str >= '0' && *str <= '9')
-		{
-			number *= 10;
-			number += *str - '0';
-		}
-		str++;
-	}
-	return (number * sign);
+	return (i);
 }
-/*
+
+int	ft_size_arr(char **strs)
+{
+
+}
+
+char	*ft_strjoin(int size, char **strs, char *sep)
+{
+	char *a;
+	return a;
+}
+
 int	main(void)
 {
-	printf("%d",(ft_atoi(" --+-+-12a345")));
+	int	i;
+
+	i = 0;
+	char	*array[4] = {"e", "", "", ""};
+	printf("%lu", (char )sizeof(array));
+	//char *x;
+	//*x = ft_strjoin(4,array,":");
+	while (i < 4)
+	{
+		printf("%s", array[i]);
+		i++;
+	}
+	return (0);
 }
-*/

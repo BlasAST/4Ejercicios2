@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 12:42:08 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/02/26 13:25:45 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/03/10 14:23:50 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,9 @@ void	ft_print_comb(void)
 		numbers[1] = '0';
 		numbers[0]++;
 	}
+}
+
+int	main(void)
+{
+	ft_print_comb();
 }
