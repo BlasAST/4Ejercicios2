@@ -6,11 +6,11 @@
 /*   By: bsiguenc <bsiguenc@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 16:12:38 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/03/04 12:34:02 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/03/12 22:54:21 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <unistd.h>
+#include <unistd.h>
 
 char	*ft_strcapitalize(char *str)
 {
@@ -18,24 +18,24 @@ char	*ft_strcapitalize(char *str)
 	int	word;
 
 	i = 0;
+	word = 1;
 	while (str[i] != '\0')
 	{
-		if ((str[i] < '0' || str[i] > '9') && (str[i] < 'A' || str[i] > 'Z')
-			&& (str[i] < 'a' || str[i] > 'z'))
+		if (str[i] >= 'a' && str[i] <= 'z')
+		{
+			if (word == 1)
+				str[i] = str[i] - 32;
+			word = 0;
+		}
+		else if (str[i] >= 'A' && str[i] <= 'Z')
+		{
+			if (word == 0)
+				str[i] = str[i] + 32;
+		}
+		else if (str[i] >= '0' && str[i] <= '9')
 			word = 0;
 		else
-		{
-			if (word == 0 && str[i] >= 'a' && str[i] <= 'z'
-				|| i == 0 && str[i] >= 'a' && str[i] <= 'z')
-			{
-				str[i] = str[i] - 32;
-				word = 1;
-			}
-			else if (str[i] >= 'A' && str[i] <= 'Z')
-				str[i] = str[i] + 32;
-			else
-				word = 1;
-		}
+			word = 1;
 		i++;
 	}
 	return (str);
