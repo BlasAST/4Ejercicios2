@@ -35,6 +35,8 @@ int	ft_atoi(char *str)
 			number *= 10;
 			number += *str - '0';
 		}
+		else
+			break;
 		str++;
 	}
 	return (number * sign);

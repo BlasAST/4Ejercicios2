@@ -16,78 +16,70 @@ void	ft_putchar(char n)
 {
 	write(1, &n, 1);
 }
-/*
-int	ft_strcmp(char *s1, char *s2)
+
+int	ft_find(char *base, int i)
 {
-	while (*s1 == *s2 && *s1 != '\0' && *s2 != '\0')
-	{
-		s1++;
-		s2++;
-	}
-	return (*s1 - *s2);
-}
-*/
-int	ft_valid_base(char *base)
-{
-	int	i;
 	int	j;
 
-	i = 0;
 	j = 0;
+	while (j < i)
+	{
+		if(base[j] == base[i])
+			return (0);
+		j++;
+	}
+	return (1);
+}
+
+int	ft_valid_base_len(char *base)
+{
+	int	i;
+
+	i = 0;
 	if(base[i] == '\0' || base[i + 1] == '\0')
 		return (0);
 	while (base[i] != '\0')
 	{
 		if (base[i] == '-' || base[i] == '+')
 			return (0);
-		/*
-		j = 0;
-		while (base[j] != '\0')
-		{
-			if (base[j] == base[i])
-				//return (0);
-			j++;
-		}
-		*/
+		if (ft_find(base,i) == 0)
+			return (0);
 		i++;	
 	}
-	return (1);
-}
-
-int	ft_strlen(char *base)
-{
-	int	i;
-
-	i = 0;
-	while (*base != '\0')
-	{
-		base++;
-		i++;
-	}
-	return (1);
+	return (i);
 }
 
 void	conver(int nbr, char *base, int base_len)
 {
 	if (nbr >= base_len)
 		conver(nbr / base_len, base, base_len);
-	ft_putchar(base[nbr % base_len] + '0');
+	if (base_len != 8)
+		ft_putchar(base[nbr % base_len]);
+	else
+		ft_putchar(nbr % base_len + '0');
 }
 
 void	ft_putnbr_base(int nbr, char *base)
 {
-	int	size_base = ft_strlen(base);
-	if (!ft_valid_base(base))
+	int	size_base;
+	if (ft_valid_base_len(base) == 0)
 		return ;
-	conver(nbr, base, ft_strlen(base));
+	else
+		size_base = ft_valid_base_len(base);
+	if (nbr < 0)
+	{
+		ft_putchar('-');
+		nbr = -nbr;
+	}
+	conver(nbr, base, size_base);
 }
-
+/*
 int main(void)
 {
 
-	ft_putnbr_base(-1234, "0123456789");
+	ft_putnbr_base(1234, "0123456789");
 	ft_putchar('\n');
-	ft_putnbr_base(34, "01");
+	ft_putnbr_base(1234, "01");
 	ft_putchar('\n');
 	ft_putnbr_base(1234, "0123456789ABCDEF");
 	ft_putchar('\n');
@@ -95,4 +87,4 @@ int main(void)
 	ft_putchar('\n');
 	return (0);
 }
-
+*/
