@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 13:25:07 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/02/26 13:31:49 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/03/12 22:19:27 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,25 @@ void	ft_putchar(char n)
 
 void	ft_putnbr(int nb)
 {
-	if (nb <= 2147483647)
+	if (nb == -2147483648)
 	{
-		if (nb == -2147483648)
-		{
-			write(1, "-2147483648", 11);
-			return ;
-		}
-		if (nb == -nb)
-		{
-			return ;
-		}
-		if (nb > 0)
-		{
-			ft_putnbr(nb / 10);
-		}
-		ft_putchar(nb % 10 + '0');
+		write(1, "-2147483648", 11);
+		return ;
 	}
+	else if (nb < 0)
+	{
+		ft_putchar('-');
+		nb = -nb;
+	}
+	if (nb / 10 > 0)
+	{
+		ft_putnbr(nb / 10);
+	}
+	ft_putchar(nb % 10 + '0');
 }
+/*
+int	main(void)
+{
+	ft_putnbr(-21483647);
+}
+*/

@@ -6,7 +6,7 @@
 /*   By: bsiguenc <bsiguenc@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 12:41:03 by bsiguenc          #+#    #+#             */
-/*   Updated: 2025/02/26 13:28:59 by bsiguenc         ###   ########.fr       */
+/*   Updated: 2025/03/12 22:09:39 by bsiguenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ void	ft_print_comb2(void)
 	int	y;
 
 	x = 0;
-	y = 0;
 	while (x <= 98)
 	{
+		y = x + 1;
 		while (y <= 99)
 		{
 			print_number(x);
@@ -40,6 +40,7 @@ void	ft_print_comb2(void)
 			if (x != 98 || y != 99)
 			{
 				ft_print_char(',');
+				ft_print_char(' ');
 			}
 			y++;
 		}
@@ -47,3 +48,9 @@ void	ft_print_comb2(void)
 		x++;
 	}
 }
+/*
+int	main(void)
+{
+	ft_print_comb2();
+}
+*/
